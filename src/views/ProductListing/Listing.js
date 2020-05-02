@@ -19,7 +19,7 @@ class Listing extends Component {
         const { classes, products } = this.props;
         return (
             <Fragment>
-                <div >
+                <div className={classes.mobileSort}>
                     <Toolbar />
                     <div className={classes.sortOptions}>
                         <Paper className={classes.mobileSortOption} variant="outlined">

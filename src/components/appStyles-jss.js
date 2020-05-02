@@ -75,6 +75,11 @@ export const styles = (theme) => ({
         display: 'flex',
         justifyContent: 'space-between'
     },
+    mobileSort: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none'
+        }
+    },
     mobileSortOption: {
         fontWeight: 'bold',
         width: '50%',
