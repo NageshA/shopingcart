@@ -61,6 +61,14 @@ export const styles = (theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        }
+    },
+    sorting: {
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        }
     },
     drawerPaper: {
         width: drawerWidth,
@@ -83,7 +91,28 @@ export const styles = (theme) => ({
     cardRoot: {
         minWidth: 190,
         marginTop: theme.spacing(2),
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.down('md')]: {
+            width: '100%'
+        }
+    },
+    cartProd: {
+        width: "75%",
+        [theme.breakpoints.down('md')]: {
+            width: '100%'
+        }
+    },
+    cartPrice: {
+        width: "25%",
+        [theme.breakpoints.down('md')]: {
+            width: '100%'
+        }
+    },
+    cartroot: {
+        display: 'flex',
+        [theme.breakpoints.down('md')]: {
+            display: 'block'
+        }
     },
     cardMedia: {
         height: 300,
@@ -118,7 +147,11 @@ export const styles = (theme) => ({
         margin: theme.spacing(3),
         padding: theme.spacing(2),
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('md')]: {
+            display: 'block',
+            justifyContent: 'space-between'
+        }
     },
     cartImage: {
         height: 100,
@@ -128,10 +161,25 @@ export const styles = (theme) => ({
         margin: theme.spacing(2),
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('md')]: {
+            marginRight: 0
+        }
     },
     stepper: {
         display: 'flex',
+        [theme.breakpoints.down('md')]: {
+            justifyContent: 'center'
+        }
+    },
+    removeButton: {
+        alignItems: 'center',
+        display: 'flex',
+        [theme.breakpoints.down('md')]: {
+            marginTop: theme.spacing(1),
+            display: 'block',
+            textAlign: 'center'
+        }
     },
     cartPricing: {
         margin: theme.spacing(3)

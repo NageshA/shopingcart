@@ -23,7 +23,7 @@ class Sorting extends Component {
             <Fragment>
                 <Toolbar />
 
-                <Paper >
+                <Paper className={classes.sorting}>
                     <div className={classes.root}>
                         <div className={classes.sort}>
                             <Typography>Sort by</Typography>

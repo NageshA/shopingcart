@@ -63,9 +63,11 @@ class Cart extends Component {
                         <AddBoxOutlinedIcon />
                     </IconButton>
                 </div>
-                <Button size="small" color="default" onClick={() => this.removeFromCart()}>
-                    Remove
+                <div className={classes.removeButton}>
+                    <Button size="small" color="default" onClick={() => this.removeFromCart()}>
+                        Remove
                 </Button>
+                </div>
             </Paper>
         );
     }

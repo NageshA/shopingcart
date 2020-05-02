@@ -15,15 +15,15 @@ class UserCart extends Component {
                 <Toolbar />
                 {
                     products.length > 0 ?
-                        <div className={classes.root}>
-                            <Box width="75%">
+                        <div className={classes.cartroot}>
+                            <Box className={classes.cartProd}>
                                 {
                                     products.map((prod) => {
                                         return (<Cart product={prod} key={prod.id} />)
                                     })
                                 }
                             </Box>
-                            <Box width="25%">
+                            <Box className={classes.cartPrice}>
                                 <CartPrice products={products} />
                             </Box>
                         </div>
