@@ -70,6 +70,17 @@ export const styles = (theme) => ({
             display: 'none'
         }
     },
+    sortOptions: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    mobileSortOption: {
+        fontWeight: 'bold',
+        width: '50%',
+        textAlign: 'center',
+        padding: theme.spacing(2)
+    },
     drawerPaper: {
         width: drawerWidth,
     },
@@ -181,6 +192,23 @@ export const styles = (theme) => ({
             textAlign: 'center'
         }
     },
+    sortMobile: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
+        }
+    },
+    optionBar: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none'
+        }
+    },
+    filterMobile: {
+
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
+        }
+
+    },
     cartPricing: {
         margin: theme.spacing(3)
     },
@@ -213,6 +241,9 @@ export const styles = (theme) => ({
         display: 'flex',
         justifyContent: 'space-between'
     },
+    sortOptions: {
+        display: 'flex'
+    }
 
 
 

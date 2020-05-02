@@ -4,11 +4,12 @@ import { styles } from '../appStyles-jss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sortProduct } from '../../actions/productActions';
+import classnames from 'classnames';
 class Sorting extends Component {
     state = {
         value: 0
     }
-    
+
     handleChange = (event, newValue) => {
         this.setState({
             value: newValue
@@ -21,7 +22,7 @@ class Sorting extends Component {
         const { classes } = this.props;
         return (
             <Fragment>
-                <Toolbar />
+                <Toolbar className={classes.sorting} />
 
                 <Paper className={classes.sorting}>
                     <div className={classes.root}>
@@ -43,6 +44,7 @@ class Sorting extends Component {
 
                     </div>
                 </Paper>
+
             </Fragment>
         );
     }
