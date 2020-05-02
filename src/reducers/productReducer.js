@@ -1,4 +1,4 @@
-import { PRODUCTS, PRODUCTS_SEARCH, PRODUCTS_SORT } from './../actions/actionTypes';
+import { PRODUCTS, PRODUCTS_SEARCH, PRODUCTS_SORT, PRODUCTS_FILTER } from './../actions/actionTypes';
 
 export default (state = [], action) => {
     switch (action.type) {
@@ -22,7 +22,7 @@ export default (state = [], action) => {
                 }
             }
         case PRODUCTS_SORT:
-            console.log(action.payload)
+
             let discountSort;
             if (action.payload === 2) {
                 discountSort = sortByKey(state.products, 'discount');
@@ -37,6 +37,15 @@ export default (state = [], action) => {
             return {
                 products: state.products,
                 filtered_products: [...discountSort]
+            }
+
+        case PRODUCTS_FILTER:
+            let filterdProducts = state.products.filter((prod) => {
+                return prod.price.actual >= action.payload[0] && prod.price.actual <= action.payload[1]
+            })
+            return {
+                products: state.products,
+                filtered_products: [...filterdProducts]
             }
         default:
             return state;

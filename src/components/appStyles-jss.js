@@ -154,7 +154,17 @@ export const styles = (theme) => ({
         alignItems: 'center',
         margin: theme.spacing(5),
         flexDirection: 'column'
-    }
+    },
+    slider: {
+        marginTop: theme.spacing(3)
+    },
+    sliderComp: {
+        width: 180
+    },
+    inputField: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
 
 
 

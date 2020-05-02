@@ -5,8 +5,9 @@ import { styles } from '../appStyles-jss';
 import RangeSlider from '../Slider/Slider';
 
 class Filters extends Component {
-
+    
     render() {
+
         const { classes } = this.props;
         return (
             <Drawer
@@ -20,7 +21,7 @@ class Filters extends Component {
                 <div className={classes.drawerContainer}>
                     <Typography gutterBottom>Filters</Typography>
 
-                    <RangeSlider />
+                    <RangeSlider className={classes.slider} />
 
                 </div>
             </Drawer>
