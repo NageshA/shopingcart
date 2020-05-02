@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, Paper, IconButton, TextField, Button } from '@material-ui/core';
+import { withStyles, Paper, IconButton, TextField, Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 import { styles } from '../appStyles-jss';
 import Price from '../Price/Price';
 import IndeterminateCheckBoxOutlinedIcon from '@material-ui/icons/IndeterminateCheckBoxOutlined';
@@ -8,7 +8,12 @@ import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import { pushToCart, changeQuantityToCart, popFromCart, removeFromCart } from '../../actions/cartActions';
 import { connect } from 'react-redux';
 class Cart extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+    }
     changeQuantity = (quantity) => {
         if (!(quantity > 0)) {
             quantity = 1
@@ -25,7 +30,17 @@ class Cart extends Component {
     }
 
     removeFromCart = () => {
+        this.setState({
+            open: true
+        })
+    }
+    handleRemove = () => {
         this.props.removeFromCart(this.props.product)
+    }
+    cancel = () => {
+        this.setState({
+            open: false
+        })
     }
 
     render() {
@@ -68,6 +83,27 @@ class Cart extends Component {
                         Remove
                 </Button>
                 </div>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.cancel}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">{"Remove"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Are you sure you want to remove?
+          </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.cancel} color="primary">
+                            CANCEL
+          </Button>
+                        <Button onClick={this.handleRemove} color="primary" autoFocus>
+                            REMOVE
+          </Button>
+                    </DialogActions>
+                </Dialog>
             </Paper>
         );
     }

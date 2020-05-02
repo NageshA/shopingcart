@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, withStyles, CardActionArea, CardContent, Typography, CardActions, Button, CardMedia } from '@material-ui/core';
+import { Card, withStyles, CardActionArea, CardContent, Typography, CardActions, Button, CardMedia, Snackbar } from '@material-ui/core';
 import { styles } from '../appStyles-jss';
 import PropTypes from 'prop-types';
 import { yellow } from '@material-ui/core/colors';
@@ -7,11 +7,27 @@ import { pushToCart } from '../../actions/cartActions';
 import { connect } from 'react-redux';
 import Price from '../Price/Price';
 class ProductCard extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            vertical: 'bottom',
+            horizontal: 'right',
+        }
+    }
     addToCart = (product) => {
         this.props.pushToCart(product)
+        this.setState(
+            { ...this.state, open: true }
+        )
+    }
+    handleClose = () => {
+        this.setState(
+            { ...this.state, open: false }
+        )
     }
     render() {
+        const { vertical, horizontal, open } = this.state;
         const ColorButton = withStyles((theme) => ({
             root: {
                 color: theme.palette.getContrastText(yellow[500]),
@@ -45,6 +61,13 @@ class ProductCard extends Component {
                     </ColorButton>
                     </CardActions>
                 </Card>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    key={`${this.state.vertical},${horizontal}`}
+                    open={open}
+                    onClose={this.handleClose}
+                    message="Item added to Cart"
+                />
             </div>
         );
     }
